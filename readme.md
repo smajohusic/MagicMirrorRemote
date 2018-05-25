@@ -5,7 +5,7 @@
 </p>
 
 
-##### A simple homepage that allows you to remotly execute ssh commands to your client.
+##### A simple homepage that allows you to remotely execute ssh commands to your client.
 
 Remember to create a `.env` file in root of this project, and add these variables.
 Change out to your credentials for `SSH_IP`, `SSH_USERNAME` and `SSH_PASSWORD`
