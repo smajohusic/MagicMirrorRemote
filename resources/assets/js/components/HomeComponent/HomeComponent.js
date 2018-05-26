@@ -40,6 +40,34 @@ export default {
         });
     },
 
+    reboot() {
+      this.enableLoader();
+
+      axios.post('/api/ssh/reboot')
+        .then(response => {
+          this.disableLoader();
+          console.log('success', response);
+        })
+        .catch(error => {
+          this.disableLoader();
+          console.log('error', error.data);
+        });
+    },
+
+    shutdown() {
+      this.enableLoader();
+
+      axios.post('/api/ssh/shutdown')
+        .then(response => {
+          this.disableLoader();
+          console.log('success', response);
+        })
+        .catch(error => {
+          this.disableLoader();
+          console.log('error', error.data);
+        });
+    },
+
     enableLoader() {
       $('.loader').show();
       $('#app').css('background-color', 'lightgrey');
