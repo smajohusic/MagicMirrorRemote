@@ -29,4 +29,20 @@ Route::group(['prefix' => 'ssh', 'namespace' => 'Api'], function () {
             'uses' => 'SshController@screenOff'
         ]
     );
+
+    Route::post(
+        'reboot',
+        [
+            'as' => 'ssh.reboot',
+            'uses' => 'SshController@reboot'
+        ]
+    );
+
+    Route::post(
+        'shutdown',
+        [
+            'as' => 'ssh.shutdown',
+            'uses' => 'SshController@shutdown'
+        ]
+    );
 });

@@ -44,7 +44,38 @@ class SshController extends Controller
 
     public function reboot()
     {
-        // todo: implement
+        $sshClient = $this->setConnection();
+
+        if ($sshClient === null) {
+            return $this->authenticationFailed();
+        }
+
+        $this->runWithSudo($sshClient);
+
+        $sshClient->write("sudo reboot now \n");
+        $sshClient->read('[prompt]');
+
+        return [
+            'successMessage' => 'Rebooting MagicMirror successfully!'
+        ];
+    }
+
+    public function shutdown()
+    {
+        $sshClient = $this->setConnection();
+
+        if ($sshClient === null) {
+            return $this->authenticationFailed();
+        }
+
+        $this->runWithSudo($sshClient);
+
+        $sshClient->write("sudo shutdown now \n");
+        $sshClient->read('[prompt]');
+
+        return [
+            'successMessage' => 'Shutting down MagicMirror successfully!'
+        ];
     }
 
     private function setConnection()
