@@ -1,18 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
 Route::group(['prefix' => 'ssh', 'namespace' => 'Api'], function () {
     Route::post(
         'screen-on',
@@ -43,6 +30,16 @@ Route::group(['prefix' => 'ssh', 'namespace' => 'Api'], function () {
         [
             'as' => 'ssh.shutdown',
             'uses' => 'SshController@shutdown'
+        ]
+    );
+});
+
+Route::group(['prefix' => 'web-camera', 'namespace' => 'Api'], function () {
+    Route::post(
+        'store',
+        [
+            'as' => 'webCamera.store',
+            'uses' => 'WebCameraController@store'
         ]
     );
 });

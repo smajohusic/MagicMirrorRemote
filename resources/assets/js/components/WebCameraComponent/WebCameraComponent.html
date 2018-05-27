@@ -1,0 +1,21 @@
+<div class="web-cam mt-5">
+    <div class="">
+        <button v-if="!enabled" class="btn btn-primary" type="button" @click="enableWebCam">Take pictures!</button>
+    </div>
+
+    <div class="web-cam-container" v-if="enabled">
+        <video id="camera-stream" width="500" autoplay></video>
+
+        <canvas id="canvas-elemet" style="display:none;" width="300" height="300"></canvas>
+
+
+        <div class="row">
+            <div class="col-2" v-for="image in images">
+                <img class="img" :src="image" alt="">
+            </div>
+        </div>
+
+        <button class="btn btn-secondary" type="button" @click="stopCamera">Exit!</button>
+        <button class="btn btn-primary" type="button" @click="storeImage">Smile!</button>
+    </div>
+</div>

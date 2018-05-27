@@ -75,6 +75,8 @@
                 </div>
 
                 <home-component></home-component>
+
+                <web-camera-component></web-camera-component>
             </div>
         </div>
     </body>

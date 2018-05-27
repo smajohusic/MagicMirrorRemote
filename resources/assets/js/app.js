@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -29,10 +28,12 @@ window.Vue = require('vue');
  */
 
 import HomeComponent from './components/HomeComponent/HomeComponent';
+import WebCameraComponent from './components/WebCameraComponent/WebCameraComponent';
 
 const app = new Vue({
-    el: '#app',
-    components: {
-        HomeComponent
-    }
+  el: '#app',
+  components: {
+    HomeComponent,
+    WebCameraComponent
+  }
 });
